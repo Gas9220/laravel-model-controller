@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-         @vite('resources/js/app.js')
-    </head>
-    <body>
-        <div class="container">
-            <h1>Template Classe 89</h1>
-            <img src="{{ Vite::asset('resources/img/pluto.webp') }}" alt="" srcset="">
-        </div>
+<html lang="en">
 
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    @vite('resources/js/app.js')
+
+</head>
+
+<body>
+    <div class="container p-3">
+        <div class="row">
+        @foreach ($movies as $movie)
+            <div class="col-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ $movie->title }}</h4>
+                        <p class="card-text">Original title: {{ $movie->original_title }}</p>
+                        <p class="card-text">Nationality: {{ $movie->nationality }}</p>
+                        <p class="card-text">Date: {{ $movie->date }}</p>
+                        <p class="card-text">Vote: {{ $movie->vote }}</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    </div>
+</body>
+
 </html>
